@@ -3,12 +3,15 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.Bloom?>
 <?import javafx.scene.effect.Glow?>
+<?import javafx.scene.effect.Reflection?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="313.0" prefWidth="684.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="file_classifier.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="345.0" prefWidth="684.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="file_classifier.FXMLDocumentController">
     <children>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="137.0" layoutY="67.0" prefHeight="67.0" prefWidth="405.0" text="File Classifier" textAlignment="CENTER" textFill="#5f50d0">
          <font>
@@ -18,11 +21,25 @@
             <Glow />
          </effect>
       </Label>
-      <HBox layoutX="149.0" layoutY="200.0">
+      <HBox layoutX="147.0" layoutY="157.0">
          <children>
             <TextField id="path" prefHeight="31.0" prefWidth="336.0" />
-            <Button id="gobtn" mnemonicParsing="false" prefHeight="31.0" prefWidth="50.0" text="GO" />
+            <Button id="gobtn" mnemonicParsing="false" prefHeight="31.0" prefWidth="40.0" text="...">
+               <effect>
+                  <Blend mode="BLUE" />
+               </effect></Button>
          </children>
       </HBox>
+      <Button id="cleanbtn" defaultButton="true" layoutX="226.0" layoutY="227.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="218.0" text="CLEAN" textAlignment="CENTER" textFill="#351ea8">
+         <font>
+            <Font size="29.0" />
+         </font>
+         <effect>
+            <Bloom />
+         </effect>
+      </Button>
     </children>
+   <effect>
+      <Reflection />
+   </effect>
 </AnchorPane>
