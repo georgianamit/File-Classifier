@@ -21,19 +21,21 @@
             <Glow />
          </effect>
       </Label>
-      <HBox layoutX="136.0" layoutY="123.0">
+      <HBox layoutX="141.0" layoutY="124.0">
          <children>
             <TextField id="path" prefHeight="31.0" prefWidth="336.0">
                <effect>
                   <Reflection />
-               </effect></TextField>
+               </effect>
+            </TextField>
             <Button id="gobtn" mnemonicParsing="false" prefHeight="31.0" prefWidth="40.0" text="...">
                <effect>
                   <Reflection />
-               </effect></Button>
+               </effect>
+            </Button>
          </children>
       </HBox>
-      <Button id="cleanbtn" defaultButton="true" layoutX="215.0" layoutY="193.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="218.0" text="CLEAN" textAlignment="CENTER" textFill="#351ea8">
+      <Button id="cleanbtn" defaultButton="true" layoutX="227.0" layoutY="194.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="218.0" text="CLEAN" textAlignment="CENTER" textFill="#351ea8">
          <font>
             <Font size="29.0" />
          </font>
