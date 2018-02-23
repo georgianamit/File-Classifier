@@ -12,37 +12,43 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.stage.FileChooser;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
-
 /**
  *
  * @author spider
  */
 public class FXMLDocumentController implements Initializable {
     @FXML
-    private Label lbl;
-    FileChooser fileChooser = new FileChooser();
+    private Label errorlbl;
+    @FXML
+    private TextField pathfield;
+    @FXML
+    private AnchorPane anchorid;
+
 
 
     
     @FXML
     private void browseBtnAction(ActionEvent event) {
-         File selectedDir = fileChooser.showOpenDialog(null);
+         DirectoryChooser dirChooser = new DirectoryChooser();
+         dirChooser.setTitle("Choose Folder");
+         Stage stage = (Stage)anchorid.getScene().getWindow();
+         File selectedDir = dirChooser.showDialog(stage);
          
          
          if(selectedDir != null){
-             if(selectedDir.isDirectory()){
-                 System.out.print("its ok");
-             }
+             pathfield.setText(selectedDir.getAbsolutePath());
          }else{
-             
+             errorlbl.setText("The folder is not being open. Try Again!");
          }
     }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        fileChooser.setTitle("Choose Folder");
+
     }    
     
 }

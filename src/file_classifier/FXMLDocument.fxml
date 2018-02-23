@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="345.0" prefWidth="684.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="file_classifier.FXMLDocumentController">
+<AnchorPane id="AnchorPane" fx:id="anchorid" prefHeight="345.0" prefWidth="684.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="file_classifier.FXMLDocumentController">
     <children>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="126.0" layoutY="33.0" prefHeight="67.0" prefWidth="405.0" text="File Classifier" textAlignment="CENTER" textFill="#5f50d0">
          <font>
@@ -23,7 +23,7 @@
       </Label>
       <HBox layoutX="141.0" layoutY="124.0">
          <children>
-            <TextField id="path" prefHeight="31.0" prefWidth="336.0">
+            <TextField id="path" fx:id="pathfield" prefHeight="31.0" prefWidth="336.0">
                <effect>
                   <Reflection />
                </effect>
@@ -35,7 +35,7 @@
             </Button>
          </children>
       </HBox>
-      <Button id="cleanbtn" defaultButton="true" layoutX="227.0" layoutY="194.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="218.0" text="CLEAN" textAlignment="CENTER" textFill="#351ea8">
+      <Button id="cleanbtn" defaultButton="true" layoutX="227.0" layoutY="201.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="218.0" text="CLEAN" textAlignment="CENTER" textFill="#351ea8">
          <font>
             <Font size="29.0" />
          </font>
@@ -48,6 +48,10 @@
             <Glow />
          </effect>
       </ProgressBar>
-      <Label fx:id="lbl" layoutX="14.0" layoutY="173.0" prefHeight="73.0" prefWidth="112.0" />
+      <Label fx:id="errorlbl" alignment="CENTER" layoutX="141.0" layoutY="162.0" prefHeight="31.0" prefWidth="376.0" textFill="#f21919">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>
