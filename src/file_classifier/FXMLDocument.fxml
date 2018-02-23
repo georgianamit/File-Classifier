@@ -28,7 +28,7 @@
                   <Reflection />
                </effect>
             </TextField>
-            <Button id="gobtn" mnemonicParsing="false" prefHeight="31.0" prefWidth="40.0" text="...">
+            <Button fx:id="browsebtn" mnemonicParsing="false" onAction="#browseBtnAction" prefHeight="31.0" prefWidth="40.0" text="...">
                <effect>
                   <Reflection />
                </effect>
@@ -48,5 +48,6 @@
             <Glow />
          </effect>
       </ProgressBar>
+      <Label fx:id="lbl" layoutX="14.0" layoutY="173.0" prefHeight="73.0" prefWidth="112.0" />
     </children>
 </AnchorPane>
