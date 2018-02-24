@@ -27,7 +27,8 @@ public class FXMLDocumentController implements Initializable {
     private TextField pathfield;
     @FXML
     private AnchorPane anchorid;
-
+    
+    File selectedDir;
 
 
     
@@ -36,7 +37,7 @@ public class FXMLDocumentController implements Initializable {
          DirectoryChooser dirChooser = new DirectoryChooser();
          dirChooser.setTitle("Choose Folder");
          Stage stage = (Stage)anchorid.getScene().getWindow();
-         File selectedDir = dirChooser.showDialog(stage);
+         selectedDir = dirChooser.showDialog(stage);
          
          
          if(selectedDir != null){
@@ -44,6 +45,53 @@ public class FXMLDocumentController implements Initializable {
          }else{
              errorlbl.setText("The folder is not being open. Try Again!");
          }
+    }
+    
+    @FXML
+    private void goBtnAction(ActionEvent event){
+        fileClassifier(selectedDir);
+    }
+    
+    public void fileClassifier(File file){
+        
+        if(file.isDirectory()){
+            File[] innerFiles = file.listFiles();
+            for(int i =0;i<innerFiles.length;i++){
+                fileClassifier(innerFiles[i]);
+            }
+        }else{
+            String fileExt = getExtension(file);
+            if(fileExt.equals("jpeg") || fileExt.equals("jpg")|| fileExt.equals("png")){
+                moveTo(file,"Images");
+            }else
+                if(fileExt.equals("pdf")){
+                    moveTo(file,"PDF Documents");
+                }else
+                    if(fileExt.equals("mp3")){
+                        moveTo(file,"Music");
+                    }else
+                        if(fileExt.equals("docx")||fileExt.equals("doc")){
+                            moveTo(file,"Word Documents");
+                        }else
+                            if(fileExt.equals("xlsx")||fileExt.equals("xls")){
+                                moveTo(file,"Excel Documents");
+                            }else
+                                if(fileExt.equals("mp4")||fileExt.equals("mkv")){
+                                    moveTo(file,"Videos");
+                                }
+            
+        }
+    }
+    
+    public void moveTo(File file, String foldername){
+        File newdir = new File(file.getParent()+"\\"+foldername);
+        newdir.mkdir();
+        file.renameTo(new File(newdir.getPath(),file.getName()));
+    }
+    
+    String getExtension(File file){
+        String fileExt=file.getName();
+        return fileExt.substring(fileExt.lastIndexOf('.')+1).toLowerCase();
     }
     
     @Override

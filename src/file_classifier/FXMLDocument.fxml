@@ -35,7 +35,7 @@
             </Button>
          </children>
       </HBox>
-      <Button id="cleanbtn" defaultButton="true" layoutX="227.0" layoutY="201.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="218.0" text="CLEAN" textAlignment="CENTER" textFill="#351ea8">
+      <Button fx:id="goBtn" defaultButton="true" layoutX="227.0" layoutY="201.0" mnemonicParsing="false" onAction="#goBtnAction" prefHeight="52.0" prefWidth="218.0" text="GO" textAlignment="CENTER" textFill="#351ea8">
          <font>
             <Font size="29.0" />
          </font>
