@@ -12,6 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.DirectoryChooser;
@@ -27,8 +28,11 @@ public class FXMLDocumentController implements Initializable {
     private TextField pathfield;
     @FXML
     private AnchorPane anchorid;
+    @FXML
+    private ProgressIndicator proInd;
     
     File selectedDir;
+    int totalFiles=0;
 
 
     
@@ -43,13 +47,16 @@ public class FXMLDocumentController implements Initializable {
          if(selectedDir != null){
              pathfield.setText(selectedDir.getAbsolutePath());
          }else{
-             errorlbl.setText("The folder is not being open. Try Again!");
+             errorlbl.setText("Try Again!");
          }
     }
     
     @FXML
     private void goBtnAction(ActionEvent event){
+        proInd.setVisible(true);
+        proInd.setProgress(-1.0f);
         fileClassifier(selectedDir);
+        proInd.setProgress(1.0f);
     }
     
     public void fileClassifier(File file){
