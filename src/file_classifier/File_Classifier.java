@@ -20,7 +20,7 @@ public class File_Classifier extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
-        
+        stage.setTitle("File Classifier");
         Scene scene = new Scene(root);
 
         
